@@ -9,24 +9,26 @@
 </head>
 <body>
     <div class="form-wrapper">
-        <div class="banner"><div class="banner-text">그동안 본 하이린에 관하여</div></div>
+        <div class="banner">
+            <div class="banner-text">그동안 본 하이린에 관하여</div>
+        </div>
 
         <div id="formSection">
             <header class="form-header">
                 <h1>하이린이라는 사람은 어땠나요?</h1>
-                <p>솔직하게 적어주는것이 하이린에게 도움이 됩니다.</p>
+                <p>솔직하게 적어주는 것이 하이린에게 도움이 됩니다.</p>
             </header>
 
             <form id="eventForm" novalidate>
                 <div id="step1" class="form-step">
                     <div class="input-card">
-                        <label for="userName">성함 <span class="required">*</span></label>
+                        <label for="userName">성함 <span class="required" data-tooltip="필수로 작성해야 하는 칸 입니다">*</span></label> 
                         <input type="text" id="userName" placeholder="성함을 입력해 주세요.">
                         <div id="nameError" class="error-msg"></div>
                     </div>
 
                     <div class="input-card">
-                        <label>성별 <span class="required">*</span></label>
+                        <label>성별 <span class="required" data-tooltip="필수로 작성해야 하는 칸 입니다">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="userGender" value="남"> 남</label>
                             <label><input type="radio" name="userGender" value="여"> 여</label>
@@ -41,19 +43,19 @@
 
                 <div id="step2" class="form-step" style="display: none;">
                     <div class="input-card">
-                        <label>1. 하이린의 첫인상 / 현인상은 어떤가요? <span class="required">*</span></label>
-                        <textarea id="q1" rows="3" placeholder="내용을 입력해주세요."></textarea>
+                        <label>1. 하이린의 첫인상 / 현인상은 어떤가요? <span class="required" data-tooltip="필수로 작성해야 하는 칸 입니다">*</span></label>
+                        <textarea id="q1" rows="3" placeholder="내용을 10자 이상 입력해주세요."></textarea>
                         <div id="q1Error" class="error-msg"></div>
                     </div>
 
                     <div class="input-card">
-                        <label>2. 하이린과 어떻게 친해졌고 지금은 어떤가요? <span class="required">*</span></label>
-                        <textarea id="q2" rows="3" placeholder="내용을 입력해주세요."></textarea>
+                        <label>2. 하이린과 어떻게 친해졌고 지금은 어떤가요? <span class="required" data-tooltip="필수로 작성해야 하는 칸 입니다">*</span></label>
+                        <textarea id="q2" rows="3" placeholder="내용을 10자 이상 입력해주세요."></textarea>
                         <div id="q2Error" class="error-msg"></div>
                     </div>
 
                     <div class="input-card">
-                        <label>3. 하이린에 대한 만족도 <span class="required">*</span></label>
+                        <label>3. 하이린에 대한 만족도 <span class="required" data-tooltip="필수로 작성해야 하는 칸 입니다">*</span></label>
                         <div class="score-group">
                             <label><input type="radio" name="satisfaction" value="1"> 1점</label>
                             <label><input type="radio" name="satisfaction" value="2"> 2점</label>
@@ -65,9 +67,10 @@
                     </div>
 
                     <div class="input-card">
-                        <label>4. 하이린에게 하고 싶은 한마디 <span class="required">*</span></label>
-                        <textarea id="q4" rows="3" placeholder="내용을 입력해주세요."></textarea>
-                        <div id="q4Error" class="error-msg"></div>
+                        <label>4. 하이린에게 하고 싶은 한마디 <span class="required" data-tooltip="필수로 작성해야 하는 칸 입니다">*</span></label>
+                        <textarea id="q4" rows="3" placeholder="내용을 10자 이상 입력해주세요."></textarea>
+                        <div id="q4Error" class="error-msg"></div>  
+                        <p class="info-text">※ 설문 내용은 원천 공개하지 않습니다.</p>
                     </div>
 
                     <div class="btn-container">
@@ -89,5 +92,4 @@
     </div>
     <script src="event.js"></script>
 </body>
-
 </html>
