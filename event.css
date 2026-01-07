@@ -8,27 +8,83 @@ body { background-color: #f1f3f5; padding: 20px 10px; }
 
 .input-card { background: white; padding: 25px 20px; margin-bottom: 12px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 .input-card label { display: block; font-weight: bold; margin-bottom: 15px; font-size: 1.05rem; }
-.required { color: #ff4d4f; }
+
+/* 커스텀 툴팁 CSS (물음표 커서 제거 버전) */
+.required {
+    color: #ff4d4f;
+    margin-left: 3px;
+    position: relative;
+    cursor: default; /* 물음표(?) 없이 기본 화살표 커서 유지 */
+}
+
+.required::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 12px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.required::after {
+    content: "";
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.required:hover::before, .required:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
 
 input[type="text"], textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; outline: none; }
 input:focus, textarea:focus { border: 1px solid #30cf7a; }
 
-/* 성별 라디오 버튼 */
 .radio-group { display: flex; gap: 30px; }
 .radio-group label { font-weight: normal; display: flex; align-items: center; gap: 8px; cursor: pointer; }
 
-/* 만족도 점수 그룹 (가로 배치) */
 .score-group { display: flex; justify-content: space-between; padding: 0 10px; }
 .score-group label { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: normal; cursor: pointer; }
 .score-group input { width: 18px; height: 18px; accent-color: #30cf7a; }
 
-/* 버튼 컨테이너 - 오른쪽 정렬 */
 .btn-container { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
 button { padding: 12px 25px; border-radius: 4px; border: none; font-size: 1rem; font-weight: bold; cursor: pointer; }
-.next-btn, #submitBtn { background-color: #30cf7a; color: white; }
+.next-btn, #submitBtn { background-color: #30cf7a; color: white; min-width: 100px; height: 50px; }
 .prev-btn { background-color: #eee; color: #666; }
 
-.error-msg { color: #ff4d4f; font-size: 0.85rem; margin-top: 10px; height: 18px; }
+.error-msg { color: #ff4d4f; font-size: 0.85rem; margin-top: 10px; min-height: 18px; }
+
+/* 점 세 개 로딩 애니메이션 */
+.loading-dots { display: flex; justify-content: center; align-items: center; gap: 4px; height: 100%; }
+.loading-dots span { width: 8px; height: 8px; background-color: white; border-radius: 50%; display: inline-block; animation: dot-pulse 1.4s infinite ease-in-out both; }
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+@keyframes dot-pulse { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
 
 .success-card { background: white; padding: 60px 20px; text-align: center; border-radius: 8px; }
 .home-btn { margin-top: 30px; border: 1px solid #ddd; background: white; padding: 10px 20px; }
+/* 안내 문구 스타일 */
+.info-text {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+    padding-left: 5px;
+}
